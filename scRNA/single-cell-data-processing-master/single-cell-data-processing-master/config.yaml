@@ -1,0 +1,38 @@
+DATA: /path/to/data/dir
+OUTDIR: /path/to/outdir
+CELLRANGER_PATH: /path/to/<cellranger-6.1.2> # the name of the directory depends on the version you downloaded
+
+###### If you need to build your own reference package
+# mkref options
+MKREF: <y/n>
+FASTA: /path/to/fasta
+GTF: /path/to/gtf # if creating own reference
+PREFIX: <species>
+REF_VERSION: 
+  - "--ref-version=<version>"
+CR_MKREF_EXTRA: ""
+
+# Filter GTF
+FILTER_GTF: <y/n>
+# # see here for available biotypes https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/advanced/references#mkgtf
+ATTRIBUTES:
+  - "--attribute=<biotype>"
+######
+
+# rename fastq files
+RENAME: <y/n>
+
+# Cell ranger count options 
+# https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/count#cr-count
+CR_COUNT_extra: ""
+
+# QC parameters
+MITO_PERCENTAGE: 10 # keep cells with less than X% mitochondrial read fraction
+NUMBER_GENES_PER_CELL: 500 # keep cells with more than X genes
+NUMBER_UMI_PER_CELL: 1000 # keep cells with more than X UMIs
+ENSEMBLE_BIOMART_SPECIES: "<species>" # ensembl biomart species used to get the mitochondrial genes for that species
+
+# threshold doublet score (should be at the minimum between two modes of the simulated doublet histogram)
+SCRUB_THRESHOLD: 
+
+
